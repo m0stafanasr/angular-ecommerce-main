@@ -1,0 +1,128 @@
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-3">Register a new user</div>
+    </div>
+    <form class="m-3" (ngSubmit)="register()" [formGroup]="registerform" #newReg=>
+        <div>
+            <label for="uname" class="form-label">
+                id:
+            </label>
+            <input type="number" [class.is-valid]="id?.valid" formControlName="id" class="form-control" id="id" name="id">
+        </div>
+        <div class="row mb-3">
+            <label for="usrname" class="form-label">
+                UserName:
+            </label>
+            <input  type="text" formControlName="userName"class="form-control" id="usrName" name="username"
+                [class.is-valid]="userName?.valid">
+            <div class="alert alert-warning" [hidden]="userName?.valid || userName?.untouched">
+                <small *ngIf="userName?.errors?.['required']">user name is required</small>
+                <small *ngIf="userName?.errors?.['pattern']">user name must be 5 letters at least</small>
+                <small *ngIf="userName?.errors?.['existUser']">user name <b>{{userName?.errors?.['pattern'].actualValue}}</b> is used before
+                    <a routerLink="/login">Login?</a></small>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="pass" class="form-label">
+                password:
+            </label>
+            <input type="password" formControlName="pass" class="form-control" id="pass" name="pass" [class.is-valid]="pass?.valid">
+            <div class="alert alert-warning" *ngIf="pass?.errors?.['required'] && pass?.touched">
+                <small *ngIf="pass?.errors?.['required']">Password is required</small>
+                <small *ngIf="pass?.errors?.['pattern']">password must be 6 letters at least</small>
+                <small *ngIf="registerform?.errors?.['includename']">password can't be the same as user name</small>
+            <small *ngIf="registerform?.errors?.['dontmatch'] && (registerform.touched || registerform.dirty)">passwords doesn't match</small>
+         </div>
+        </div>
+        <div class="row mb-3">
+            <label for="cnfrmPass" class="form-label">
+                Confirm Password:
+            </label>
+            <input type="password" formControlName="cnfrmpass" class="form-control" id="cnfrmPass" name="cnfrmpass" [class.is-valid]="cnfrmPass?.valid">
+            <div class="alert alert-warning" *ngIf="cnfrmPass?.errors?.['required'] && (cnfrmPass?.touched)" >
+               
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="email" class="form-label">
+                E-mail:
+            </label>
+            <input type="email" formControlName="email" class="form-control" id="email" name="email"
+            [class.is-valid]="email?.valid" >
+            <div class="alert alert-warning" [hidden]="email?.valid || email?.untouched">
+                <small *ngIf="email?.errors?.['required']">Email is required</small>
+                <small *ngIf="registerform?.errors?.['existEmail']">Email <b>{{email?.errors?.['pattern'].actualValue}}</b> already in use <a>Login?</a> </small>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div>
+                <div formArrayName="phones" class="mb-3" *ngFor="let phone of phones.controls; let i=index">
+                    <label for="{{'phone-'+i}}" class="form-label">Phone No. {{i+1}}: </label>
+                    <input type="text" [class.is-valid]="phone?.valid" [formControlName]="i" class="form-control" id="{{'phone-'+ i}}"
+                        name="{{'phone-'+i}}" >
+
+                    <div class="alert alert-warning" [hidden]="phone?.valid || phone?.untouched">
+                        <small *ngIf="phone?.errors?.['required']">phone is required</small>
+                        <small *ngIf="phone?.errors?.['pattern']">phone no must contains 11 numbers</small>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary mx-2" (click)="addPhone($event)">add another</button>
+                        <button class="btn btn-secondary" (click)="removephone()">remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div formGroupName="address">
+            <div class="mb-3">
+                <label for="uname" class="form-label">
+                    city:
+                </label>
+                <input type="text" [class.is-valid]="city?.valid" formControlName="city" class="form-control" id="city" name="city">
+                <div class="alert alert-warning" [hidden]="city?.valid || city?.untouched">
+                    <small *ngIf="city?.errors?.['required']">city is required</small>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="street" class="form-label">
+                    Street:
+                </label>
+                <input type="text" formControlName="street" [class.is-valid]="street?.valid" class="form-control" id="street" name="street">
+                <div class="alert alert-warning" [hidden]="street?.valid || street?.untouched">
+                    <small *ngIf="street?.errors?.['required']">street is required</small>
+                </div>
+                {{street?.errors|json}}
+            </div>
+
+            <div class="mb-3">
+                <label for="pstCode" class="form-label">
+                    postal Code:
+                </label>
+                <input type="pstCode" [class.is-valid]="pstCode?.valid" formControlName="pstCode" class="form-control" id="pstCode" name="pstCode">
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="btn-group"  role="group" aria-label="Basic radio toggle button group">
+                <input class="form-check-input" type="radio" formControlName="delivery" name="delivery"
+                value="specDay"    id="specificDay" (change)="updateDelivery()">
+                <label class="form-check-label" for="specificDay">specific day</label>
+                <input class="form-check-input" type="radio" formControlName="delivery" name="delivery" id="anyDay"
+                 (change)="updateDelivery()" value="any">
+                <label class="form-check-label" for="anyDay">
+                    any day
+                </label>
+            </div>
+        </div>
+        <div class="mb-3 ms-3" *ngIf="delivery?.value=='specDay'">
+            <label for="option" class="form-label">Specify</label>
+            <input type="date" formControlName="specificDelivery" class="form-control" id="option" name="delivery">
+      
+        </div>
+        <button [disabled]="registerform.invalid" type="submit" class="btn btn-success">Register New User</button>
+    </form>
+<div>
+    {{registerform.value|json}}
+    {{registerform?.errors|json}}
+</div>
+</div>

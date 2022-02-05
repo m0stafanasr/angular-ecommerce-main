@@ -1,0 +1,44 @@
+<div class="container-fluid my-4">
+<div class="row d-flex justify-content-start ">
+    <div class="col-3">
+        <img [src]="prod?.img">
+    </div>
+    <div class="col-3 d-flex justify-content-start">
+        <strong><table class="table">
+            <tbody>
+              <tr>
+                  <td>ID: </td>
+                <td>{{prod?.id}}</td>
+              </tr>
+              <tr>
+                <td>Name: </td>
+              <td>{{prod?.Name}}</td>
+            </tr>
+            <tr>
+                <td>quantity: </td>
+              <td>{{prod?.quantity}}</td>
+            </tr>
+            <tr>
+                <td>Price: </td>
+              <td>{{prod?.Price}}</td>
+            </tr>
+            <tr>
+                <td>category: </td>
+              <td>{{prod?.categoryID}}</td>
+            </tr>
+            </tbody>
+          </table></strong>
+    </div>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-3">
+        <button class="btn btn-success"(click)="prev()">Prev</button>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-success" (click)="back()">back</button>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-success" (click)="next()">Next</button>
+    </div>
+</div>
+</div>

@@ -1,0 +1,89 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "mobiles"
+    },
+    {
+      "id": 2,
+      "name": "laptops"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "iphone 13",
+      "quantity": 10,
+      "Price": 15000,
+      "img": "https://picsum.photos/150/100",
+      "categoryID": 1,
+      "discount": "DiscountOffers.discount1"
+    },
+    {
+      "id": 2,
+      "name": "lenovo laptop",
+      "quantity": 5,
+      "Price": 15500,
+      "img": "https://picsum.photos/150/100",
+      "categoryID": 2,
+      "discount": 0
+    },
+    {
+      "id": 3,
+      "name": "lenovo mobile",
+      "quantity": 1,
+      "Price": 5500,
+      "img": "https://picsum.photos/150/100",
+      "categoryID": 1,
+      "discount": "DiscountOffers.discount1"
+    },
+    {
+      "id": 4,
+      "name": "samsung s21 ultra",
+      "quantity": 7,
+      "Price": 21200,
+      "img": "https://picsum.photos/150/100",
+      "categoryID": 1,
+      "discount": "DiscountOffers.discount2"
+    },
+    {
+      "id": 5,
+      "name": "HP laptop",
+      "quantity": 3,
+      "Price": 16000,
+      "img": "https://picsum.photos/150/100",
+      "categoryID": 2,
+      "discount": 0
+    },
+    {
+      "id": 6,
+      "name": "Dell lapto",
+      "quantity": 4,
+      "Price": 18000,
+      "img": "https://picsum.photos/150/100",
+      "categoryID": 2,
+      "discount": "DiscountOffers.discount2"
+    },
+    {
+      "ID": "8",
+      "Name": "m62",
+      "Price": "2000",
+      "quantity": "500",
+      "img": "sd",
+      "categoryID": "1",
+      "id": 8
+    },
+    {
+      "ID": "8",
+      "Name": "laptop",
+      "Price": 30000,
+      "quantity": 3,
+      "img": "im",
+      "categoryID": "2",
+      "id": 9
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-flex justify-content-center h3">add new prod</div>
+    </div>
+    <div class="row my-3 h5" >
+        <div class="row my-2">
+            <div class="col-2 mx-2">ID: </div>
+            <div class="col-2"><input type="text" [value]="newprod.id" name="ID" [(ngModel)]="newprod.id" disabled></div>
+        </div>
+        <form #addprd="ngForm" (ngSubmit)="add()">
+
+        <div class="row my-2">
+            <div class="col-2 mx-2">newprod Name: </div>
+            <div class="col-2"><input #prdName="ngModel" type="text" [value]="newprod.Name" name="name"  [(ngModel)]="newprod.Name" required pattern="[A-Za-z0-9/^(\s+\S+\s*)*(?!\s).*$/]{3,}"></div>
+            <div class="alert alert-warning" [hidden]="prdName.valid || prdName.untouched">
+            <small *ngIf="prdName.errors?.['required']">product Name is required</small>
+            <small *ngIf="prdName.errors?.['pattern']">product Name must be more than 3 letters</small>
+        </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-2 mx-2">newprod price: </div>
+            <div class="col-2"><input #price="ngModel" type="number" [value]="newprod.Price" name="price"  [(ngModel)]="newprod.Price" required pattern="[0-9]{1,}"></div>
+            <div class="alert alert-warning" [hidden]="price.valid || price.untouched">
+            <small *ngIf="price.errors?.['required']">price is required</small>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-2 mx-2">newprod quantity: </div>
+            <div class="col-2"><input #quantity="ngModel" type="number" [value]="newprod.quantity" name="quantity"  [(ngModel)]="newprod.quantity" required pattern="[0-9]{1,}"></div>
+            <div class="alert alert-warning" [hidden]="quantity.valid || quantity.untouched">
+            <small *ngIf="quantity.errors?.['required']">product quantity required</small>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-2 mx-2">newprod img: </div>
+            <div class="col-2"><input #prdimg="ngModel" type="text" [value]="newprod.img" name="img"  [(ngModel)]="newprod.img" required></div>
+            <div class="alert alert-warning" [hidden]="prdimg.valid || prdimg.untouched">
+                <small *ngIf="quantity.errors?.['required']"> image is required</small>
+                </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-2 mx-2">category: </div>
+                 <select #categ="ngModel" class="dropdown col-2" id="cat" name="category" [(ngModel)]="newprod.categoryID">
+
+                    <option *ngFor="let category of cat" [value]="category.id">
+                    {{category.name}}</option>
+                    </select>
+                    <div class="alert alert-warning" [hidden]="categ.valid || categ.untouched">
+                        <small *ngIf="categ.errors?.['required']">product quantity is required</small>
+                        </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                    <button class="btn btn-success col-1" [disabled]="addprd.invalid"  type="submit">add newprod</button>
+                </div>
+                </form>
+    </div>
+   
+</div>

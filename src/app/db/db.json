@@ -1,0 +1,87 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "mobiles"
+    },
+    {
+      "id": 2,
+      "name": "laptops"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "Name": "iphone 13",
+      "quantity": 10,
+      "Price": 15000,
+      "img": "https://picsum.photos/150/100",
+      "categoryID": 1,
+      "discount": "DiscountOffers.discount1"
+    },
+    {
+      "id": 2,
+      "Name": "lenovo laptop",
+      "quantity": 5,
+      "Price": 15500,
+      "img": "https://picsum.photos/150/100",
+      "categoryID": 2,
+      "discount": 0
+    },
+    {
+      "id": 4,
+      "Name": "samsung s21 ultra",
+      "quantity": 7,
+      "Price": 21200,
+      "img": "https://picsum.photos/150/100",
+      "categoryID": 1,
+      "discount": "DiscountOffers.discount2"
+    },
+    {
+      "id": 3,
+      "Name": "lenovo mobile",
+      "quantity": 5,
+      "Price": 5500,
+      "img": "https://picsum.photos/150/100",
+      "categoryID": 1,
+      "discount": "DiscountOffers.discount1"
+    },
+    {
+      "id": 5,
+      "Name": "HP laptop",
+      "quantity": 3,
+      "Price": 16000,
+      "img": "https://picsum.photos/150/100",
+      "categoryID": 2,
+      "discount": 0
+    },
+    {
+      "id": 6,
+      "Name": "Dell lapto",
+      "quantity": 4,
+      "Price": 18000,
+      "img": "https://picsum.photos/150/100",
+      "categoryID": 2,
+      "discount": "DiscountOffers.discount2"
+    }
+  ],
+  "users": [
+    {
+      "id":1,
+      "username": "nametest",
+      "password": "pass123",
+      "email": "mostafa@nasr.com",
+      "phoneno": [
+        "01234568910",
+        "01987654321"
+      ],
+      "address": {
+        "city": "cairo",
+        "street": "talaat harb",
+        "postalcode": "17321"
+      },
+      "deliveryoptions": "any Day",
+      "delivery Day": ""
+    }
+  ]
+}

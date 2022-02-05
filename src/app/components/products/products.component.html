@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-5 d-flex align-items-center">
+
+          
+            </div>
+       <!--<div class=" col-3">
+            <select class="dropdown" id="cat" [(ngModel)]="selectCatID">
+                                              
+                <option *ngFor="let category of catlist" [value]="category.id">
+                    {{category.name}}</option>
+            </select>
+        </div>--> 
+       <div class="row">
+        
+           <div class="col-6 d-flex">
+            <div class="col-2"><Strong>Total price: </Strong></div> 
+           <!-- <div class="col-2">{{total}}</div>-->
+        </div>
+       </div>
+  
+    <div class="row d-flex  my-4">
+        <!--<div class="card col-2 mx-4" appShadow="yellow" defaultColor="black" *ngFor="let prod of products; let i=index; TrackBy:productTrack"
+         [ngClass]="{'d-none':selectCatID!=prod.categoryID, 'bg-warning':prod.quantity==1, 'bg-secondary':prod.quantity>1}"
+         [hidden]="prod.quantity==0"
+          id="card-vew">
+         
+            <img [src]="prod.img" class="card-img-top pt-3" />
+            <div class="card-body">
+                <h3 class="card-title">{{prod.Name}}</h3>
+                <ng-template [ngIf]="nodiscount" [ngIfElse]="discount">
+                 
+                </ng-template>
+                <ng-template #discount>
+                    <p >We offer an explicit discount of {{prod.discount}}</p>
+                </ng-template>
+                <button class="btn btn-primary" (click)="purchased(prod,prod.Price); ">buy</button>
+                <p>{{prod.quantity}}</p>
+                <p>{{prod.Price}}</p>
+            </div> -->
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th class="col-1">#</th>
+                    <th class="col-2">name</th>
+                    <th class="col-2">imag</th>
+                    <th class="col-1">quantity</th>
+                    <th class="col-1">price</th>
+                    <th class="col-1">amount</th>
+                    <th class="col-1">details</th>
+                    <th class="col-1">action</th>
+                    <th class="col-2">add to cart</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr  appShadow="yellow" defaultColor="black" *ngFor="let prod of addedItem  ; let i=index; TrackBy:productTrack"
+                  [ngClass]="{ 'bg-warning bg-opacity-25':prod.quantity==1, 'bg-secondary':prod.quantity>1}"
+             
+                  [hidden]="prod.quantity==0">
+                    <td class="col-1">{{i+1}}</td>
+                    <td class="col-2">{{prod.Name}}</td>
+                    <td class="col-2"><img [src]='prod.img'/></td>
+                    <td class="col-1">{{prod.quantity}}</td>
+                    <td class="col-1">{{prod.Price}}</td>
+                    <td class="col-1"><input type="number" #amount></td>
+                    <td class="col-1"><button class="btn btn-light" [routerLink]="['/products',prod.id]">Details</button></td>
+                    <td class="col-1"><button class="btn btn-warning" [routerLink]="['/edit',prod.id]">edit Prod</button></td>
+                    <td scope="col-2" ><button class="btn btn-primary" (click)="purchased(prod, amount.value); ">buy</button></td>
+                    <td scope="col-2" ><button class="btn btn-primary" (click)="deleteprd(prod.id); ">delete</button></td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+                
+       
+        <label *ngIf="isPurchase">thank you for purchasing</label>
+      
+    </div>

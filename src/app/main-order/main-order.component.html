@@ -1,0 +1,59 @@
+<div class="container-fluid">
+   
+  <div class="row"><div class="col-12"></div>{{nationalID| getAge}}</div></div>
+  <div class="row"><div class="col-12"></div>{{cardnumber| creditcard}}</div>
+    <div class="row">
+        <div class="col-2">
+            Category:
+        </div>
+<div class=" col-3">
+    <select class="dropdown" id="cat" [(ngModel)]="selectedCat">
+        <option value='0'> All</option>
+        <option *ngFor="let category of cat" [value]="category.id">
+            {{category.name}}</option>
+    </select>
+</div>
+
+  <hr>
+  <div>
+    <app-products [sendCatID]="selectedCat" [returnQuant]="backQuant" (totalPrice)="getTotalPrice($event)" (addedProduct)="addToCart($event)"></app-products>
+</div> 
+<div class="row">
+    <div class="row">
+    <div class="col-3">total Price: {{totalprice|currency:'EGP':'code'}}</div>
+    <div class="offset-lg-6 col-2"><button class="btn btn-primary" (click)="showout()">Checkout</button></div>
+    </div>
+  <table class="table">
+        <thead>
+          <tr>
+            <th scope="col-1">#</th>
+            <th scope="col-2">name</th>
+            <th scope="col-2">image</th>
+            <th scope="col-2">quantity</th>
+            <th scope="col-2">price</th>
+            <th scope="col-2">add to cart</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prod of showprod; let i=index;">
+     
+            
+            <td scope="col-1">{{i+1}}</td>
+            <td scope="col-2">{{prod.Name}}</td>
+            <td scope="col-2"><img [src]='prod.img'/></td>
+            <td scope="col-2"><button class="btn-success col-3" (click)="incval(prod)">+</button>
+                <label type="number" class="col-4 text-center" #amount>{{prod.quantity}}</label>
+                <button class="btn-success col-3" (click)="decval(prod)">-</button>
+            </td>
+            <td scope="col-2">{{prod.Price * prod.quantity}}</td>
+            <td scope="col-2" ><button class="btn btn-primary" (click)="deleteprod(prod, prod.Price, i)" [(ngModel)]="backQuant" >Delete</button></td>
+          </tr>
+
+        </tbody>
+      </table>
+      <div class="alert alert-success " role="alert" id="alert" #Alert>
+        
+      </div>
+</div>
+  </div> 

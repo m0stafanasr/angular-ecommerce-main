@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark bg-opacity-25 ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page"  routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/profile" routerLinkActive="active">Account</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/products" routerLinkActive="active">products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/mainpage" routerLinkActive="active">ordernow</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/edit" routerLinkActive="active">add new product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [hidden]="loggedIn" routerLink="/login" routerLinkActive="active">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" [hidden]="!loggedIn" >Logout</a>
+          </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Modal -->
+<div class="modal fade" appModal id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        are you sure you want to logOut?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="logout()" routerLink="/logout" routerLinkActive="active" >confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row d-flex justify-content-center">
+
+</div>
+<router-outlet></router-outlet>
