@@ -3,12 +3,6 @@
         <div class="col-lg-3">Register a new user</div>
     </div>
     <form class="m-3" (ngSubmit)="register()" [formGroup]="registerform" #newReg=>
-        <div>
-            <label for="uname" class="form-label">
-                id:
-            </label>
-            <input type="number" [class.is-valid]="id?.valid" formControlName="id" class="form-control" id="id" name="id">
-        </div>
         <div class="row mb-3">
             <label for="usrname" class="form-label">
                 UserName:
@@ -92,7 +86,7 @@
                 <div class="alert alert-warning" [hidden]="street?.valid || street?.untouched">
                     <small *ngIf="street?.errors?.['required']">street is required</small>
                 </div>
-                {{street?.errors|json}}
+               
             </div>
 
             <div class="mb-3">
@@ -122,7 +116,10 @@
         <button [disabled]="registerform.invalid" type="submit" class="btn btn-success">Register New User</button>
     </form>
 <div>
-    {{registerform.value|json}}
+
+</div>
+</div>
+<!--    {{registerform.value|json}}
     {{registerform?.errors|json}}
-</div>
-</div>
+ {{street?.errors|json}}
+-->

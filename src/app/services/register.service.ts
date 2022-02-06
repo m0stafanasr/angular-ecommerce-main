@@ -31,7 +31,7 @@ export class RegisterService {
     .pipe(retry(2), catchError(this.handleError))
   }
 
-  isuserexest(val:string) 
+ userexist(val:string) 
   { 
     let found=this.httpclient.get<Iuser[]>(`${environment.APIURL}/Users?email=${val}`);
     if(found)
@@ -39,5 +39,7 @@ export class RegisterService {
     else 
     return false;
   }
+
+  
 }
 

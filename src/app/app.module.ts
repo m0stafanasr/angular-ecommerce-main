@@ -19,7 +19,7 @@ import { AddNewComponent } from './components/add-new/add-new.component';
 import { LoginComponent } from './components/login/login.component';
 import { ModalDirective } from './directives/modal.directive';
 import {HttpClientModule} from '@angular/common/http';
-import { NewUserComponent } from './unregistered/new-user/new-user.component'
+import { NewUserComponent } from './components/new-user/new-user.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { NewUserComponent } from './unregistered/new-user/new-user.component'
     AddNewComponent,
     LoginComponent,
     ModalDirective,
-
+    NewUserComponent
     
   ],
   imports: [

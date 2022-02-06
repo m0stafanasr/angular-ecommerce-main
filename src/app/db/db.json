@@ -67,7 +67,7 @@
   ],
   "users": [
     {
-      "id":1,
+      "id": 1,
       "username": "nametest",
       "password": "pass123",
       "email": "mostafa@nasr.com",
@@ -82,6 +82,40 @@
       },
       "deliveryoptions": "any Day",
       "delivery Day": ""
+    },
+    {
+      "id": 2,
+      "userName": "mostafanasr",
+      "pass": "123456",
+      "cnfrmpass": "123456",
+      "email": "mostafanasr2020@gmail.com",
+      "phones": [
+        "01116214280"
+      ],
+      "address": {
+        "city": "Cairo",
+        "street": "44 farag sedik street, hadayek helwan, helwan",
+        "pstCode": "11731"
+      },
+      "delivery": "any",
+      "deliverySpec": ""
+    },
+    {
+      "userName": "mostafanasr",
+      "pass": "123456",
+      "cnfrmpass": "123456",
+      "email": "mostafa@gmail.com",
+      "phones": [
+        "01116214280"
+      ],
+      "address": {
+        "city": "Cairo",
+        "street": "44 farag sedik street, hadayek helwan, helwan",
+        "pstCode": "11731"
+      },
+      "delivery": "any",
+      "deliverySpec": "",
+      "id": 3
     }
   ]
 }

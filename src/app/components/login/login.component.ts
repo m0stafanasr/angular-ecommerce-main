@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   password:string=''
   basicUser:string=''
   basicpass:string=''
-  
+  logStatus:boolean=false;
   constructor(private loginService: LoginService, private router: Router, private location: Location ) {
     this.basicUser= "mostafa"
     this.basicpass="pass123"
@@ -28,18 +28,17 @@ export class LoginComponent implements OnInit {
  
 
   
-  login(){
-    if(this.username==this.basicUser && this.password==this.basicpass){
-      this.loginService.login(this.username, this.password)
+  login(userName:string, pass:string){
+    
+
+      this.loginService.login(userName, pass)
       this.loggedin= this.loginService.logStatus
      
         this.location.back()
     
        // this.router.navigate(['profile'])
      
-    }else{
-      alert("wrong name or password")
-    }
+ 
     
   }
 

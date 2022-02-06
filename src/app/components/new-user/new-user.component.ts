@@ -23,7 +23,7 @@ export class NewUserComponent implements OnInit {
     this.ExistUsers=["mostafa", "salma", ];
     this.existMails=["dd@dd.com", "mostafa@gmail.com"]
     this.registerform= fB.group({
-      id:[''],
+
     userName:['', [Validators.required, Validators.pattern('[A-Za-z]{5,}'),existUser(this.ExistUsers) ]],
     pass:['', [Validators.required, Validators.pattern('[A-Za-z0-9]{6,}')]],
     cnfrmpass: ['',[Validators.required]],
@@ -48,9 +48,7 @@ export class NewUserComponent implements OnInit {
   
   }
 
-get id(){
-  return this.registerform.get('id')
-}
+
   get userName(){
     return this.registerform.get('userName');
   }
@@ -111,8 +109,14 @@ removephone(){
       this.router.navigateByUrl('/login')
     }, error:  (err:Error)=>{alert(err.message)}
   }
-  this.userserv.addUser(userModel).subscribe();
+  this.userserv.addUser(userModel).subscribe(observer);
   this.authserv.login(userModel.username,userModel.password)
+}
+
+check()
+{
+ let found = this.userserv.userexist("mostafanasr2020@gmail.com");
+ console.log(found);
 }
 
  }
