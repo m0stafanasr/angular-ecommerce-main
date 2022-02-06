@@ -6,7 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NewUserComponent } from './components/new-user/new-user.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductsComponent } from './components/products/products.component';
-import { ProfileComponent } from './components/profile/profile.component';
+//import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
 import { MainOrderComponent } from './main-order/main-order.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
@@ -14,7 +14,10 @@ const routes: Routes = [
   {path: '', component:MainpageComponent, children:[
     {path:'',redirectTo: '/home', pathMatch: 'full'},
     {path:'home', component: MainpageComponent},
-    {path:'profile', component:ProfileComponent},
+    {
+      path: 'user', 
+      loadChildren: () => import('src/app/unregistered/unregistered.module').then(m => m.UnregisteredModule)
+    },
     {path:'products', component: ProductsComponent,  canActivate:[AuthGuard]},
     {path:'mainpage', component: MainOrderComponent,  canActivate:[AuthGuard]},
     {path:'products/:id', component: ProductDetailsComponent}
